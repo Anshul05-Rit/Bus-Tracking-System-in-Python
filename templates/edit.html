@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <link rel="stylesheet" type="text/css" href="editform.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='edit.css') }}">
+    <title>Edit Bus Announcement</title>
+</head>
+<body>
+    <h1>Edit Bus Announcement</h1>
+    <form action="/update" method="POST">
+        <input type="hidden" name="id" value="{{ document._id }}">
+        <div>
+            <label for="train_number">Train Number:</label>
+            <input type="text" id="train_number" name="train_number" value="{{ document.train_number }}" required>
+        </div>
+        <div>
+            <label for="train_number">Driver Name:</label>
+            <input type="text" id="driver_name" name="driver_name" value="{{ document.driver_name }}" required>
+        </div>
+        <div>
+            <label for="train_number">Conductor Name:</label>
+            <input type="text" id="conductor_name" name="conductor_name" value="{{ document.conductor_name }}" required>
+        </div>
+        <div>
+            <label for="departure">Departure:</label>
+            <input type="text" id="departure" name="departure" value="{{ document.departure }}" required>
+        </div>
+        <div>
+            <label for="platform">Platform Number:</label>
+            <input type="text" id="platform" name="platform" value="{{ document.platform }}" required>
+        </div>
+        <!-- <div>
+            <label for="time_exit">Time Exit:</label>
+            <input type="text" id="time_exit" name="time_exit" value="{{ document.time_exit }}" required>
+        </div> -->
+        <div>
+            <input type="submit" value="Update">
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Admin's Main Dashboard</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+      <link rel="stylesheet" href="/static/styles.css">
+      <!-- Add this to the <head> section of your HTML -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <style>
+         .btn-large {
+            font-size: 25px;
+            padding: 10px 20px;
+          }
+      </style>
+   </head>
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+         <div class="inner_container">
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_setting"></div>
+                     <div class="user_profle_side">
+                        <div class="user_info">
+                           <h6>IT Elites</h6>
+                           <p><span class="online_animation"></span> Online</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <h4>Dashboard</h4>
+                  <ul class="list-unstyled components">
+                     <li><a href="{{ url_for('index') }}"><i class="fa fa-clock-o orange_color"></i> <span>Home</span></a></li>
+                     <li><a href="{{ url_for('edit') }}"><i class="fa fa-clock-o orange_color"></i> <span>Edit</span></a></li>
+                     <li><a href="{{ url_for('records') }}"><i class="fa fa-clock-o orange_color"></i> <span>Records</span></a></li>
+                     <li><a href="{{ url_for('display_data') }}"><i class="fa fa-clock-o orange_color"></i> <span>Departure</span></a></li>
+                     <li><a href="/help"><i class="fa fa-clock-o orange_color"></i> <span>Help</span></a></li>
+                     <li><a href="/logout"><i class="fa fa-clock-o orange_color"></i> <span>Logout</span></a></li>
+                  </ul>
+               </div>
+            </nav>
+            <div id="content">
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                        <div class="right_topbar">
+                           <div class="icon_info">
+                              <button onclick="printRecords()" class="btn btn-primary btn-large">Print</button>
+
+                          </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <div id="main-content">
+                  <h1>All Bus Information</h1>
+                  <table id="information_table">
+                     <thead>
+                        <tr>
+                           <th>Bus Number</th>
+                           <th>Driver Name</th>
+                           <th>Conductor Name</th>
+                           <th>Departure</th>
+                           <th>Arrival Time</th>
+                           <th>Platform</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {% for document in documents %}
+                        <tr>
+                           <td>{{ document.train_number }}</td>
+                           <td>{{ document.driver_name }}</td>
+                           <td>{{ document.conductor_name }}</td>
+                           <td>{{ document.departure }}</td>
+                           <td>{{ document.current_time }}</td>
+                           <td>{{ document.platform }}</td>
+                        </tr>
+                        {% endfor %}
+                     </tbody>
+                  </table>
+                  
+               </div>
+               
+            </div>
+         </div>       
+      </div>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+      <<script>
+         function printRecords() {
+             fetch('/print_records')
+                 .then(response => response.blob())
+                 .then(blob => {
+                     const url = window.URL.createObjectURL(blob);
+                     const a = document.createElement('a');
+                     a.href = url;
+                     a.download = 'entry_records.pdf';
+                     a.click();
+                     window.URL.revokeObjectURL(url);
+                 });
+         }
+     </script>
+</head>
+<body>
+    
+
+    

@@ -1,0 +1,166 @@
+/* CSS styles for the help page */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    /* background-color: #ffffff; */
+  }
+  
+  header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    float: left;
+  }
+  
+  nav {
+    float: right;
+    margin-top: 20px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333333;
+  }
+  
+  section.hero {
+    background-image: url('hero-background.jpg');
+    background-color: #333333;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 70px 0;
+    text-align: center;
+  }
+  
+  section.hero h1 {
+    font-size: 78px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #dddddd;
+    align-items: center;
+  }
+  
+  section.hero p {
+    font-size: 18px;
+    color: #dddddd;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    align-items: center;
+
+  }
+  
+  section.contact {
+    background-color: #ffffff;
+    padding: 60px 0;
+  }
+  
+  section.contact h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+    background-color: #ffffff;
+  }
+  
+  .contact-info p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+  }
+  
+  .contact-form textarea {
+    height: 120px;
+  }
+  
+  .contact-form button {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  footer {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  footer p {
+    font-size: 14px;
+  }
+  table {
+    background-color: #ffffff;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    border: 1px solid #dddddd;
+    text-align: left;
+  }
+  .social-icons {
+    background-color:#ffffff;
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  .social-icons h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+  }
+  
+  .icons a {
+    color: #333333;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .icons a:hover {
+    color: #007bff;
+  }
+  
+  .section.table {
+    background-color: #ffffff;
+    padding: 60px 0;
+  }
+  
+  .section.table h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+  }
+  

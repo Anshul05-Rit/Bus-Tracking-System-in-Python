@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Admin's Main Dashboard</title>
+      <!-- <meta http-equiv="refresh" content="5" > -->
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+      <!-- <link rel="stylesheet" href="/Hackathon/static/styles.css">  -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+   // Function to reload the page
+    function reloadPage() {
+        location.reload();
+    }  
+   // Refresh the page every 5 seconds (5000 milliseconds)
+   setInterval(reloadPage, 2000);
+ </script>
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+            <div class="sidebar_blog_1">
+                <div class="sidebar-header">
+                    <div class="sidebar_user_info">
+                         <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                          <div class="user_info">
+                             <h6>It Elites</h6>
+                             <p><span class="online_animation"></span> Online</p>
+                          </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+               <div class="sidebar_blog_2">
+                  <h4>General</h4>
+                  <ul class="list-unstyled components">
+                     <li><a href="{{ url_for('index') }}"><i class="fa fa-clock-o orange_color"></i> <span>Home</span></a></li>
+                     <li><a href="{{ url_for('edit') }}"><i class="fa fa-clock-o orange_color"></i> <span>Edit</span></a></li>
+                     <li><a href="{{ url_for('records') }}"><i class="fa fa-clock-o orange_color"></i> <span>Records</span></a></li>
+                     <li><a href="{{ url_for('search') }}"><i class="fa fa-clock-o orange_color"></i> <span>Search</span></a></li>
+                    
+                     <li><a href="/help"><i class="fa fa-clock-o orange_color"></i> <span>Help</span></a></li>
+
+                     <li><a href="{{ url_for('index') }}"><i class="fa fa-clock-o orange_color"></i> <span>Logout</span></a></li>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+
+                        <div class="right_topbar">
+                           <div class="icon_info">
+                              
+                              <ul class="user_profile_dd">
+                                 <li>
+                                    <a class="" data-toggle=""><span class="">MSRTC</span></a>
+                                    
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <!-- end topbar -->
+               <!-- dashboard inner -->
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+    <html>
+<head>
+    <title>Bus Information</title>
+</head>
+<body>
+    <h1>Bus Information</h1>
+    <table id="information_table">
+        <thead>
+            <tr>
+                <th>Bus Number</th>
+                <th>Driver Name</th>
+                <th>Conductor Name</th>
+                <th>Local Time</th>
+                <th>Departure</th>
+                <th>Platform</th>
+                <th>Save Info</th>
+                <th>Announce</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="text" id="train_number" value="{{ bus_info[0].train_number }}">
+                </td>
+                <td>
+                    <input type="text" id="conductor_name" value="{{ bus_info[0].conductor_name }}">
+                </td>
+                <td>
+                    <input type="text" id="driver_name" value="{{ bus_info[0].driver_name }}">
+                </td>
+                <td>
+                    <input type="text" id="local_time" value="{{ local_time }}">
+                </td>
+                <td>
+                    <input type="text" id="departure" value="{{ bus_info[0].departure }}" >
+                </td>
+                <td>
+                    <input type="text" id="platform" value="{{ bus_info[0].platform }}">
+                </td>
+                <td>
+                    <button onclick="SaveInformation()" class="btn btn-primary ">Save Info</button>
+                    <p id="save_message"></p>
+                </td>
+                <td>
+                    <button onclick="MakeAnnouncement()" class="btn btn-primary ">Announce</button>
+                    <p id="announcement_text"></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+         
+        function SaveInformation() {
+            var trainNumber = document.getElementById("train_number").value;
+            var driverName = document.getElementById("driver_name").value;
+            var conductorName = document.getElementById("conductor_name").value;
+            var departure = document.getElementById("departure").value;
+            var platform = document.getElementById("platform").value;
+            
+            // Get the current local time
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+            var currentTimeString = hours + ":" + minutes + ":" + seconds;
+        
+            // Send a POST request to the server to save the information
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/save_info", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        // Display the save response
+                        document.getElementById("save_message").innerHTML = xhr.responseText;
+                        alert("Information saved!");
+                    } else {
+                        // Handle error cases here
+                        alert("Error: Failed to save information.");
+                    }
+                }
+            };
+            xhr.send(
+                "train_number=" + encodeURIComponent(trainNumber) +
+                "&driver_name=" + encodeURIComponent(driverName) +
+                "&conductor_name=" + encodeURIComponent(conductorName) +
+                "&departure=" + encodeURIComponent(departure) +
+                "&platform=" + encodeURIComponent(platform) +
+                "&current_time=" + encodeURIComponent(currentTimeString) // Include the current time
+            );
+        }
+        
+
+    function MakeAnnouncement() {
+            var trainNumber = document.getElementById("train_number").value;
+            var departure = document.getElementById("departure").value;
+            var platform = document.getElementById("platform").value;
+
+            // Send a POST request to the server to make the announcement
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/announce", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Display the announcement response
+                    document.getElementById("announcement_text").innerHTML = xhr.responseText;
+                    alert("Bus announcement made!");
+                }
+            };
+            
+            xhr.send(
+                "train_number=" +
+                encodeURIComponent(trainNumber) +
+                "&departure=" +
+                encodeURIComponent(departure) +
+                "&platform=" +
+                encodeURIComponent(platform)
+            );
+        }
+
+        function Exit() {
+            var trainNumber = document.getElementById("train_number").value;
+            var departure = document.getElementById("departure").value;
+            var platform = document.getElementById("platform").value;
+            var time_exit = document.getElementById("time_exit").value;
+
+            // Send a POST request to the server to make the announcement
+            var xhr1 = new XMLHttpRequest();
+            xhr1.open("POST", "/exitannounce", true);
+            xhr1.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr1.onreadystatechange = function () {
+                if (xhr1.readyState === 4 && xhr1.status === 200) {
+                    // Display the announcement response
+                    document.getElementById("announcement_text2").innerHTML = xhr1.responseText;
+                    alert("Departure announcement made!");
+                }
+            };
+            
+            xhr1.send(
+                "train_number=" +
+                encodeURIComponent(trainNumber) +
+                "&platform=" +
+                encodeURIComponent(platform)  +
+                "&time_exit=" +
+               encodeURIComponent(time_exit) 
+            );
+        }
+    </script>
+
+               <!--  -->
+      <!-- jQuery -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+   </body>
+</html>
